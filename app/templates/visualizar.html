@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h2>{{ title }}</h2>                              <a class="btn btn-primary" href="{{ url_for('listar') }}" role="button">Listar</a>
+</div>
+
+<dl>
+  <dt>ID</dt>
+  <dd>{{ tool.id }}</dd>
+  <dt>Nome</dt>
+  <dd>{{ tool.name }}</dd>
+  <dt>Autor</dt>
+  <dd>{{ tool.author }}</dd>
+  <dt>Alias</dt>
+  <dd>{{ tool.alias }}</dd>
+  <dt>Link</dt>
+  <dd>{{ tool.link }}</dd>
+  <dt>Tipo de instalação</dt>
+  <dd>{{ tool.type_install }}</dd>
+  <dt>Categoria</dt>
+  <dd>{{ tool.category }}</dd>
+  <dt>Dependencias</dt>
+  <dd>{{ tool.dependencies }}</dd>
+  <dt>Criado em</dt>
+  <dd>{{ tool.created }}</dd>
+  <dt>Modificado em</dt>
+  <dd>{{ tool.modified }}</dd>
+</dl>
+{% endblock %}

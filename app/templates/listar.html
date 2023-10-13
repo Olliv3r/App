@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h2>{{ title }}</h2>                              <a class="btn btn-primary" href="{{ url_for('cadastrar') }}" role="button">Adicionar</a>
+</div>
+
+<table class="table">
+    <thead>
+	<tr>
+	    <th>ID</th>
+	    <th>Name</th>
+    	    <th>Author</th>
+	    <th>Created</th>
+	    <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for t in tool %}
+	<tr>
+	    <th>{{ t.id }}</th>
+  	    <td>{{ t.name }}</td>
+	    <td>{{ t.author }}</td>
+	    <td>{{ t.created }}</td>
+	    <td>
+	    <div class="dropdown">
+  	        <a class="btn btn-outline-primary dropdown-toggle" 
+		href="#" 
+		role="button" 
+	        data-bs-toggle="dropdown" 
+		aria-expanded="false">
+		Actions
+	        </a>
+
+	        <ul class="dropdown-menu">
+    	            <li>
+			<a class="dropdown-item" 
+			href="{{ url_for('visualizar', id=t.id) }}">Visualizar
+			</a>
+		    </li>
+		    <li>
+			<a class="dropdown-item" 
+		   	href="{{ url_for('editar', id=t.id) }}">Editar
+			</a>
+	      	    </li>
+		    <li>
+			<a class="dropdown-item" 
+		    href="{{ url_for('deletar', id=t.id) }}">Apagar
+		        </a>
+		    </li>
+		</ul>
+ 	    </div>
+	    </td> 
+	<tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

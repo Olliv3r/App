@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex justify-content-between">
+    <h2>{{ title }}</h2>
+    <a class="btn btn-primary" href="{{ url_for('listar') }}" role="button">Listar</a>
+</div>
+
+<form action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.name.label }}<br>
+    {{ form.name(class="form-control") }}
+    
+    {{ form.author.label }}<br>
+    {{ form.author(class="form-control") }}
+
+    {{ form.alias.label }}<br>
+    {{ form.alias(class="form-control") }}
+        
+    {{ form.link.label }}<br>
+    {{ form.link(class="form-control") }}
+        
+    {{ form.type_install.label }}<br>
+    {{ form.type_install(class="form-select") }}
+        
+    {{ form.category.label }}<br>
+    {{ form.category(class="form-select") }}
+
+    {{ form.dependencies.label }}<br>
+    {{ form.dependencies(class="form-control") }}<br>
+
+    {{ form.submit(class="btn btn-warning") }}
+</form>
+{% endblock %}
