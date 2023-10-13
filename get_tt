@@ -1,5 +1,0 @@
-#!/bin/bash
-
-total=$(sqlite3 ./app.db "SELECT COUNT(*) FROM tool")
-
-echo "$total"
