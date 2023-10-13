@@ -8,6 +8,9 @@ class Tool(db.Model):
     name = db.Column(db.String(120), nullable=False)
     author = db.Column(db.String(120), nullable=False)
     alias = db.Column(db.String(120), nullable=False)
+    custom_alias = db.Column(db.String(), nullable=True)
+    name_repository = db.Column(db.String(), nullable=True)
+
     link = db.Column(db.String(), nullable=True)
     type_install = db.Column(db.String(), nullable=False)
     category = db.Column(db.String(), nullable=False)

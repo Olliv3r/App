@@ -2,17 +2,17 @@
 
 {% block content %}
 <div class="d-flex justify-content-between">
-    <h2>{{ title }}</h2>                              <a class="btn btn-primary" href="{{ url_for('cadastrar') }}" role="button">Adicionar</a>
+    <h2>{{ title }}</h2>                              <a class="btn btn btn-primary" href="{{ url_for('cadastrar') }}" role="button">Adicionar</a>
 </div>
 
-<table class="table">
-    <thead>
+<table class="table table-sm table-responsive table-bordered mt-3">
+    <thead class="table-light">
 	<tr>
 	    <th>ID</th>
-	    <th>Name</th>
-    	    <th>Author</th>
-	    <th>Created</th>
-	    <th>Action</th>
+	    <th>Nome</th>
+    	    <th>Autor</th>
+	    <th>Criado</th>
+	    <th>Ação</th>
         </tr>
     </thead>
     <tbody>
@@ -24,12 +24,12 @@
 	    <td>{{ t.created }}</td>
 	    <td>
 	    <div class="dropdown">
-  	        <a class="btn btn-outline-primary dropdown-toggle" 
+  	        <a class="btn btn-sm btn-primary dropdown-toggle" 
 		href="#" 
 		role="button" 
 	        data-bs-toggle="dropdown" 
 		aria-expanded="false">
-		Actions
+		Ação
 	        </a>
 
 	        <ul class="dropdown-menu">

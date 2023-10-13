@@ -22,41 +22,47 @@ categories = [
 ]
 
 class RegisterToolForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    author = StringField('Author', validators=[DataRequired()])
-    alias = StringField('Alias', validators=[DataRequired()])
-    link = StringField('Link repo')
+    name = StringField('Nome', validators=[DataRequired()])
+    author = StringField('Autor', validators=[DataRequired()])
+    alias = StringField('Apelido', validators=[DataRequired()])
+    custom_alias = StringField('Apelido customizado')
+    name_repository = StringField('Nome do repositório')
+    link = StringField('Link do repositório ou instalador')
     type_install = SelectField(
-        'Type install', 
+        'Tipo de instalação', 
         choices=types_install, 
         id="type_install", default="apt",
         validators=[DataRequired()]
     )
     category = SelectField(
+        'Categoria',
         choices=categories,
         id="category", default="Extra",
         validators=[DataRequired()]
     )
-    dependencies = StringField('Dependencies')
+    dependencies = StringField('Dependencias')
     submit = SubmitField('Cadastrar')
 
 
 class ToEditToolForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
-    author = StringField('Author', validators=[DataRequired()])
-    alias = StringField('Alias', validators=[DataRequired()])
-    link = StringField('Link repo')
-    type_install = SelectField('Type install',
+    name = StringField('Nome', validators=[DataRequired()])
+    author = StringField('Autor', validators=[DataRequired()])
+    alias = StringField('Apelido', validators=[DataRequired()])
+    custom_alias = StringField('Apelido customizado')
+    name_repository = StringField('Nome do repositório')
+    link = StringField('Link')
+    type_install = SelectField('Tipo de instalação',
         choices=types_install,
         id="type_install", 
         default="apt", 
         validators=[DataRequired()]
     )
-    category = SelectField(choices=categories,
+    category = SelectField('Categoria',
+        choices=categories,
         id="category", default="Extra",
         validators=[DataRequired()]
     )
-    dependencies = StringField('Dependencies')
+    dependencies = StringField('Dependenciad')
     submit = SubmitField('Editar')
 
 

@@ -25,7 +25,16 @@ def cadastrar():
     form = RegisterToolForm()
 
     if form.validate_on_submit():
-        tool = Tool(name=form.name.data, author=form.author.data, alias=form.alias.data, link=form.link.data, type_install=form.type_install.data, category=form.category.data, dependencies=form.dependencies.data)
+        tool = Tool(
+            name=form.name.data, 
+            author=form.author.data,
+            alias=form.alias.data, 
+            custom_alias=form.custom_alias.data,
+            name_repository=form.name_repository.data,
+            link=form.link.data, 
+            type_install=form.type_install.data, 
+            category=form.category.data, 
+            dependencies=form.dependencies.data)
         db.session.add(tool)
         db.session.commit()
         flash('Ferramenta cadastrada com sucesso')
@@ -58,6 +67,8 @@ def editar(id):
         tool.name=form.name.data
         tool.author=form.author.data
         tool.alias=form.alias.data
+        tool.custom_alias=form.custom_alias.data
+        tool.name_repository=form.name_repository.data
         tool.link=form.link.data
         tool.type_install=form.type_install.data
         tool.category=form.category.data
@@ -72,6 +83,8 @@ def editar(id):
         form.name.data = tool.name
         form.author.data = tool.author
         form.alias.data = tool.alias
+        form.custom_alias.data = tool.custom_alias
+        form.name_repository.data = tool.name_repository
         form.link.data = tool.link
         form.type_install.data = tool.type_install
         form.category.data = tool.category
