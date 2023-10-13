@@ -2,10 +2,12 @@
 
 {% block content %}
 <div class="d-flex justify-content-between">
-    <h2>{{ title }}</h2>                              <a class="btn btn btn-primary" href="{{ url_for('cadastrar') }}" role="button">Adicionar</a>
+    <h2>{{ title }}</h2>
+    <a class="btn btn btn-primary" href="{{ url_for('cadastrar') }}" role="button">Adicionar</a>
 </div>
 
-<table class="table table-sm table-responsive table-bordered mt-3">
+<table class="table caption-top table-sm mt-3">
+    <caption>Lista de ferramentas</caption>
     <thead class="table-light">
 	<tr>
 	    <th>ID</th>
@@ -40,13 +42,12 @@
 		    </li>
 		    <li>
 			<a class="dropdown-item" 
-		   	href="{{ url_for('editar', id=t.id) }}">Editar
+		   	href="{{ url_for('editar', id=t.id) }}">
+			Editar
 			</a>
 	      	    </li>
 		    <li>
-			<a class="dropdown-item" 
-		    href="{{ url_for('deletar', id=t.id) }}">Apagar
-		        </a>
+			<a class="dropdown-item" href="{{ url_for('deletar', id=t.id) }}">Apagar</a>
 		    </li>
 		</ul>
  	    </div>
@@ -55,5 +56,4 @@
     {% endfor %}
     </tbody>
 </table>
-
 {% endblock %}
