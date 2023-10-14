@@ -9,22 +9,22 @@
 <form action="" method="POST">
     {{ form.hidden_tag() }}
     {{ form.name.label }}<br>
-    {{ form.name(class="form-control") }}
+    {{ form.name(class="form-control", placeholder="Nmap") }}
     
     {{ form.author.label }}<br>
-    {{ form.author(class="form-control") }}
+    {{ form.author(class="form-control", placeholder="Gordon Lyon") }}
 
     {{ form.alias.label }}<br>
-    {{ form.alias(class="form-control") }}
+    {{ form.alias(class="form-control", placeholder="Opcional") }}
 
     {{ form.custom_alias.label }}<br>
-    {{ form.custom_alias(class="form-control") }}
+    {{ form.custom_alias(class="form-control", placeholder="Opcional") }}
 
     {{ form.name_repository.label }}<br>
-    {{ form.name_repository(class="form-control") }}
+    {{ form.name_repository(class="form-control", placeholder="Opcional") }}
         
     {{ form.link.label }}<br>
-    {{ form.link(class="form-control") }}
+    {{ form.link(class="form-control", placeholder="Opcional") }}
         
     {{ form.type_install.label }}<br>
     {{ form.type_install(class="form-select") }}
@@ -33,7 +33,7 @@
     {{ form.category(class="form-select") }}
 
     {{ form.dependencies.label }}<br>
-    {{ form.dependencies(class="form-control") }}<br>
+    {{ form.dependencies(class="form-control", placeholder="Opcional") }}<br>
 
     {{ form.submit(class="btn btn-warning") }}
 </form>

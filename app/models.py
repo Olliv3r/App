@@ -5,10 +5,10 @@ from flask_login import UserMixin
 
 class Tool(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), nullable=False)
-    author = db.Column(db.String(120), nullable=False)
-    alias = db.Column(db.String(120), nullable=False)
-    custom_alias = db.Column(db.String(), nullable=True)
+    name = db.Column(db.String(), nullable=False)
+    author = db.Column(db.String(), nullable=False)
+    alias = db.Column(db.String(), nullable=True)
+    custom_alias = db.Column(db.String(), nullable=True, unique=True)
     name_repository = db.Column(db.String(), nullable=True)
 
     link = db.Column(db.String(), nullable=True)
@@ -17,7 +17,6 @@ class Tool(db.Model):
     dependencies = db.Column(db.String(), nullable=True)
     created = db.Column(db.DateTime, default=datetime.utcnow)
     modified = db.Column(db.DateTime, default=datetime.utcnow)
-
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)

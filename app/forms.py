@@ -3,7 +3,12 @@ from wtforms import StringField, SelectField, SubmitField, PasswordField, Boolea
 from wtforms.validators import DataRequired, EqualTo, Email, ValidationError
 from app.models import User
 
-types_install = ["apt", "apt not official", "git", "curl"]
+types_install = [
+    "apt", 
+    "apt not official", 
+    "git", 
+    "curl"
+]
 categories = [
     "Information Collection",
     "Vulnerability Analysis",
@@ -24,7 +29,7 @@ categories = [
 class RegisterToolForm(FlaskForm):
     name = StringField('Nome', validators=[DataRequired()])
     author = StringField('Autor', validators=[DataRequired()])
-    alias = StringField('Apelido', validators=[DataRequired()])
+    alias = StringField('Apelido')
     custom_alias = StringField('Apelido customizado')
     name_repository = StringField('Nome do repositório')
     link = StringField('Link do repositório ou instalador')
@@ -47,10 +52,10 @@ class RegisterToolForm(FlaskForm):
 class ToEditToolForm(FlaskForm):
     name = StringField('Nome', validators=[DataRequired()])
     author = StringField('Autor', validators=[DataRequired()])
-    alias = StringField('Apelido', validators=[DataRequired()])
+    alias = StringField('Apelido')
     custom_alias = StringField('Apelido customizado')
     name_repository = StringField('Nome do repositório')
-    link = StringField('Link')
+    link = StringField('Link do repositório ou instalador')
     type_install = SelectField('Tipo de instalação',
         choices=types_install,
         id="type_install", 
