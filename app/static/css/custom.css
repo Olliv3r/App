@@ -4,3 +4,10 @@ header {
 .toolmux-logo {
     width: 80px;
 }
+
+.form-cadastro input,
+.form-cadastro select,
+.form-edita input,
+.form-edita select {
+  margin-bottom: 10px !important;
+}
