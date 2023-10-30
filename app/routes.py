@@ -1,7 +1,7 @@
 from app import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import current_user, login_user, logout_user, login_required
-from app.forms import RegisterToolForm, ToEditToolForm, RegisterUserForm, LoginUserForm
+from app.forms import RegisterToolForm, ToEditToolForm, RegisterUserForm, LoginUserForm, ProfileEditForm
 from app.models import Tool, User
 from datetime import datetime
 
@@ -143,6 +143,25 @@ def login():
         return redirect(url_for('index'))
     
     return render_template('login.html', title='Acessar', form=form)
+
+# Perfil do usuário
+@app.route('/profile', methods=['GET', 'POST'])
+@login_required
+def profile():
+    form = ProfileEditForm()
+
+    if form.validate_on_submit():
+        current_user.username = form.username.data
+        current_user.email = form.email.data
+        current_user.password = form.password.data
+        db.session.commit()
+        flash('Perfil atualizado')
+
+    if request.method == 'GET':
+        form.username.data = current_user.username
+        form.email.data = current_user.email
+
+    return render_template('profile.html', title='Profile', form=form)
 
 @app.route('/logout')
 def logout():

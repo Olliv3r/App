@@ -8,7 +8,7 @@ class Tool(db.Model):
     name = db.Column(db.String(), nullable=False)
     author = db.Column(db.String(), nullable=False)
     alias = db.Column(db.String(), nullable=True)
-    custom_alias = db.Column(db.String(), nullable=True, unique=True)
+    custom_alias = db.Column(db.String(), nullable=True)
     name_repository = db.Column(db.String(), nullable=True)
 
     link = db.Column(db.String(), nullable=True)

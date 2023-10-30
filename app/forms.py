@@ -67,7 +67,7 @@ class ToEditToolForm(FlaskForm):
         id="category", default="Extra",
         validators=[DataRequired()]
     )
-    dependencies = StringField('Dependenciad')
+    dependencies = StringField('Dependencias')
     submit = SubmitField('Editar')
 
 
@@ -96,3 +96,10 @@ class LoginUserForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember me')
     submit = SubmitField('Acessar')
+
+class ProfileEditForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Editar')

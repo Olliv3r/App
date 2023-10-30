@@ -12,22 +12,22 @@
     {{ form.name(class="form-control", placeholder="Ex: Nmap") }}
     
     {{ form.author.label }}<br>
-    {{ form.author(class="form-control", placeholder="Ex: Gordon Lyon") }}
+    {{ form.author(class="form-control", id="author", placeholder="Ex: Gordon Lyon") }}
 
     {{ form.alias.label }}<br>
-    {{ form.alias(class="form-control", placeholder="Opcional") }}
+    {{ form.alias(class="form-control", id="alias", placeholder="Opcional") }}
 
     {{ form.name_repository.label }}<br>
-    {{ form.name_repository(class="form-control", placeholder="Opcional") }}
+    {{ form.name_repository(class="form-control", id="name_repository", placeholder="Opcional") }}
 
     {{ form.custom_alias.label }}<br>
     {{ form.custom_alias(class="form-control", placeholder="Ex: Opcional") }}
         
     {{ form.link.label }}<br>
-    {{ form.link(class="form-control", placeholder="Opcional") }}
+    {{ form.link(class="form-control", id="link", placeholder="Opcional") }}
         
     {{ form.type_install.label }}<br>
-    {{ form.type_install(class="form-select") }}
+    {{ form.type_install(class="form-select", id="type_install") }}
         
     {{ form.category.label }}<br>
     {{ form.category(class="form-select") }}
